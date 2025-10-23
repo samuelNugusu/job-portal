@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "setup": "chmod +x scripts/setup.sh && ./scripts/setup.sh",
+    "setup:windows": "powershell -ExecutionPolicy Bypass -File scripts/setup.ps1",
+    "install:packages": "chmod +x scripts/install-packages.sh && ./scripts/install-packages.sh",
+    "dev:start": "chmod +x scripts/dev-start.sh && ./scripts/dev-start.sh",
+    "dev:https": "chmod +x scripts/dev-start.sh && ./scripts/dev-start.sh --https",
+    "dev:network": "chmod +x scripts/dev-start.sh && ./scripts/dev-start.sh --host 0.0.0.0",
+    "clean": "rm -rf node_modules package-lock.json yarn.lock pnpm-lock.yaml && npm cache clean --force",
+    "clean:windows": "rmdir /s /q node_modules && del package-lock.json yarn.lock pnpm-lock.yaml && npm cache clean --force",
+    "update:packages": "npx npm-check-updates -u && npm install",
+    "check:packages": "npx npm-check-updates",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "test:setup": "echo 'Test setup would go here'",
+    "docker:build": "docker build -t jobhub-react .",
+    "docker:run": "docker run -p 3000:3000 jobhub-react"
+  }
+}
